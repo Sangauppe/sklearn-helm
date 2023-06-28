@@ -1,0 +1,10 @@
+apiVersion: serving.kserve.io/v1beta1
+kind: InferenceService
+metadata:
+  name: {{ .Values.inferenceService.name }}
+spec:
+  predictor:
+    model:
+      modelFormat:
+        name: {{ .Values.inferenceService.predictor.modelFormat.name }}
+      storageUri: {{ .Values.inferenceService.predictor.storageUri }}

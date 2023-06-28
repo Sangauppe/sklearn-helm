@@ -1,0 +1,4 @@
+apiVersion: v2
+name: sklearn-inference-chart
+version: 0.1.0
+description: helm chart for sklearn model
