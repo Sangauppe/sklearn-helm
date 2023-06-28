@@ -1,0 +1,21 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: my-helm-release-sklearn
+  namespace: kserve-test
+spec:
+  releaseName: sklearn_model
+  chart:
+    repository: https://github.com/Sangauppe/sklearn-helm/tree/main/kserve-model-chart
+    name: sklearn
+    version: 1.0.0
+  values:
+    inferenceService:
+      name: sklearn-iris
+      predictor:
+        modelFormat:
+          name: sklearn
+      storageUri: gs://kfserving-examples/models/sklearn/1.0/model
+    # Define your Helm chart values here
+    # Example: image.tag: v1.2.3
+
